@@ -1,0 +1,15 @@
+﻿No seu primeiro acesso vincule seu e-mail e usuário ao repositório com os dois comandos seguintes:
+
+-> git config --global user.email ‘seuemail@email.com’
+-> git config --global user.name ‘seu_usuario_github’
+-> git clone <Local web do projeto> (replica o projeto online para local. Primeiro acesso é necessário usuário e senha)
+-> git status (Verifica as diferenças entre local e online)
+-> git add . (Identifica todas as alterações existentes entre o diretório online e local)
+-> git commit -m’Mensagem que identifica o conjunto de alterações’ (É a criação de um Lote alterações que vão ser enviadas para o repositório online, Usar aspas simples)
+-> git push origin master (O comando PUSH envia todas as alterações feitas para o repositório online.
+-> git pull (Esse comando é usado para baixar atualizações feitas online para o diretório local do projeto.)
+-> git log --pretty=oneline (Lista o histórico de todos os commits feitos)
+
+Para maiores detalhes o seguinte link detalha mais comandos do Git.
+
+https://git-scm.com/docs 

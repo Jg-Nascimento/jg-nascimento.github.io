@@ -38,7 +38,7 @@
     </video>
   </div>
   <script type="module">
-    import Typebot from 'https://typebot.co/callback'
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
 
     function changeVideo(newVideoSrc) {
       const backgroundVideo = document.getElementById('backgroundVideo');
@@ -47,7 +47,7 @@
     }
 
     Typebot.initPopup({
-      typebot: "guest-feedback-survey-demo-wnbskpk",
+      typebot: "https://typebot.co/callback",
       prefilledVariables: {
         "rental_name": "Beach Retreat",
         'first_name': "Satoshi",

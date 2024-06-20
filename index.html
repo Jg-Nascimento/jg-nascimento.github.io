@@ -1,19 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="_css/styles.css">
-</head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typebot Callback Demo - Dynamic Video Background</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-		<h1 style="text-align:center;">Bem vindo</h1>
-		<h3 style="text-align: center">Portifólio em Construção</h3>
-		
-		<center>
-			<img src="http://www.jitendrag.com/wp-content/uploads/2016/01/Analytics.jpg">
-		</center>
-		
-		<p style="text-align: center;">Jorge Nascimento</p>
-	
-	</body>
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .video-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video id="backgroundVideo" autoplay loop muted>
+      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
+
+    function changeVideo(newVideoSrc) {
+      const backgroundVideo = document.getElementById('backgroundVideo');
+      backgroundVideo.src = newVideoSrc;
+      backgroundVideo.play(); // Ensure the video starts playing
+    }
+
+    Typebot.initPopup({
+      typebot: "guest-feedback-survey-demo-wnbskpk",
+      prefilledVariables: {
+        "rental_name": "Beach Retreat",
+        'first_name': "Satoshi",
+      },
+      autoShowDelay: 1000,
+      onNewInputBlock: (inputBlock) => {
+        console.log('New input block displayed', inputBlock.id)
+      },
+      onAnswer: (answer) => {
+        console.log('Answer received', answer.message, answer.blockId)
+        if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("worse")) {
+          changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4");
+        }
+        if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("better")) {
+          changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4");
+        }
+        if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("same")) {
+          changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4");
+        }
+      },
+      onInit: () => {
+        console.log('Bot initialized')
+      },
+      onEnd: () => {
+        console.log('Bot ended.')
+        changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4");
+      },
+    });
+  </script>
+</body>
 </html>

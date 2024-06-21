@@ -34,7 +34,7 @@
 <body>
   <div class="video-container">
     <video id="backgroundVideo" autoplay loop muted>
-      <source src="https://cdn.leonardo.ai/users/abc99f35-45ac-43a1-9fdb-6f9935c3a426/generations/1e02d9f6-ebf0-4567-b42c-1b022d578bb5/1e02d9f6-ebf0-4567-b42c-1b022d578bb5.mp4" type="video/mp4">
+      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
     </video>
   </div>
   <script type="module">
@@ -47,7 +47,7 @@
     }
 
     Typebot.initPopup({
-      typebot: "presetbot",
+      typebot: "guest-feedback-survey-demo-wnbskpk",
       prefilledVariables: {
         "rental_name": "Beach Retreat",
         'first_name': "Satoshi",
@@ -67,6 +67,7 @@
         if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("same")) {
           changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4");
         }
+      },
       onInit: () => {
         console.log('Bot initialized')
       },

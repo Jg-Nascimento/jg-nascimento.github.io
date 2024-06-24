@@ -59,10 +59,11 @@
       onAnswer: (answer) => {
         console.log('Answer received', answer.message, answer.blockId)
         if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("worse")) {
-          changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4");
+          //changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4");
+          changeVideo("https://cdn.leonardo.ai/users/abc99f35-45ac-43a1-9fdb-6f9935c3a426/generations/0ffd4341-df62-4d60-b518-31cd8bb17eee/0ffd4341-df62-4d60-b518-31cd8bb17eee.mp4")
         }
         if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("better")) {
-          changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4");
+          changeVideo("https://cdn.leonardo.ai/users/abc99f35-45ac-43a1-9fdb-6f9935c3a426/generations/46455947-2eb3-40b2-85b3-0311b7dcf6ac/46455947-2eb3-40b2-85b3-0311b7dcf6ac.mp4")//("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4");
         }
         if (answer.blockId === "clcrb4kx8000v3b6mudh73ho6" && answer.message.includes("same")) {
           changeVideo("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4");
